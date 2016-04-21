@@ -1,4 +1,4 @@
-FROM jare/vim-wrapper:latest
+FROM benjamint/vim-wrapper:latest
 
 MAINTAINER JAremko <w3techplaygound@gmail.com>
 
