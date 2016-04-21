@@ -72,6 +72,7 @@ RUN cd /home/developer/bundle/                                                  
     git clone --depth 1 https://github.com/leafgarland/typescript-vim.git                                       && \
     git clone --depth 1 https://github.com/christoomey/vim-tmux-navigator.git                                   && \
     git clone --depth 1 https://github.com/Quramy/tsuquyomi.git                                                 && \
+    git clone --depth 1 https://github.com/vim-scripts/peaksea.git                                              && \
 #Cleanup
     sh /util/ocd-clean /home/developer/bundle/  > /dev/null 2>&1
     
@@ -85,6 +86,14 @@ RUN  mv -f /home/developer/.vimrc /home/developer/.vimrc~                       
 
 #Pathogen help tags generation
 RUN vim -E -c 'execute pathogen#helptags()' -c q ; return 0
+
+#Install the Hack font
+RUN cd /home/developer                                                                                          && \
+    git clone --depth 1 https://github.com/chrissimpkins/Hack.git Hack                                          && \
+    mkdir -p /usr/share/fonts                                                                                   && \
+    cp -r Hack/build/ttf /usr/share/fonts/ttf-hack                                                              && \
+    fc-cache -sv                                                                                                && \
+    rm -fr /home/developer/Hack
 
 ENV GOPATH /home/developer/workspace
 ENV GOROOT /usr/lib/go
