@@ -7,4 +7,4 @@ mkdir -p /home/developer/.vim_runtime/temp_dirs
 cat .vimrc~ >> .vimrc
 echo "source /ext/.vimrc" >> .vimrc
 cd /home/developer/workspace/
-vim $@
+vim -g -f $@
