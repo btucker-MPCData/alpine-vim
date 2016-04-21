@@ -9,26 +9,28 @@ COPY .vimrc /home/developer/my.vimrc
 #Plugins deps
 RUN apk --update add curl ctags git python bash ncurses-terminfo                                                && \
 #Build YouCompleteMe
-    apk add --virtual build-deps go llvm perl cmake python-dev build-base                                       && \
+    apk add --virtual build-deps go llvm-dev clang-dev perl cmake python-dev build-base                                       && \
     git clone --depth 1  https://github.com/Valloric/YouCompleteMe.git /home/developer/bundle/YouCompleteMe/    && \
     cd /home/developer/bundle/YouCompleteMe                                                                     && \
     git submodule update --init --recursive                                                                     && \
-    /home/developer/bundle/YouCompleteMe/install.py --gocode-completer                                          && \
+    /home/developer/bundle/YouCompleteMe/install.py --gocode-completer --clang-completer --system-libclang      && \
 #Node.js deps (needed only if you're planning to mount and run jare/typescript)
     apk add libgcc libstdc++ libuv                                                                              && \
 #Install and compile procvim.vim                                                                               
     git clone --depth 1 https://github.com/Shougo/vimproc.vim.git /home/developer/bundle/vimproc.vim            && \
     cd /home/developer/bundle/vimproc.vim                                                                       && \
     make                                                                                                        && \
-    mv /home/developer/bundle/vimproc.vim/lib/vimproc_linux64.so                                                   \
-      /home/developer/bundle/vimproc.vim/lib/vimproc_unix.so                                                    && \
+#    ls -la  /home/developer/bundle/vimproc.vim/lib/    && \
+#    mv /home/developer/bundle/vimproc.vim/lib/vimproc_linux64.so                                                   \
+#      /home/developer/bundle/vimproc.vim/lib/vimproc_unix.so                                                    && \
 #Cleanup
     rm -rf /home/developer/bundle/YouCompleteMe/third_party/ycmd/cpp /usr/lib/go  \
       /home/developer/bundle/YouCompleteMe/third_party/ycmd/clang_includes                                      && \
     apk del build-deps                                                                                          && \
-    apk add libxt libx11 libstdc++                                                                              && \
+    apk add libxt libx11 libstdc++ llvm clang                                                                            && \
     sh /util/ocd-clean / > /dev/null 2>&1 
     
+
 RUN cd /home/developer/bundle/                                                                                  && \
     git clone --depth 1 https://github.com/pangloss/vim-javascript.git                                          && \
     git clone --depth 1 https://github.com/scrooloose/nerdcommenter.git                                         && \
