@@ -14,6 +14,17 @@
 `alias edit="docker run -ti --rm -v $(pwd):/home/developer/workspace jare/vim-bundle"`  
 **Alternatively, for VIM GUI and also clang completer support, make an alias:**  
 `alias edit="docker run -ti --rm -e DISPLAY -v $HOME/.Xauthority:/home/developer/.Xauthority --net=host -v $(pwd):/home/developer/workspace benjamint/vim-bundle"`  
+**Often a shell function will work better. Here are examples of mine**  
+vii() {
+	docker run -ti --rm -v $(pwd):/home/developer/workspace -v /home/btucker/vim_config:/ext/ benjamint/vim-bundle $*
+}
+export -f vii
+
+gvii() {
+	docker run -ti --rm -e DISPLAY -v $HOME/.Xauthority:/home/developer/.Xauthority --net=host -v $(pwd):/home/developer/workspace -v /home/btucker/vim_config:/ext/ benjamint/vim-bundle $*
+}
+export -f gvii
+
 **Have fun!**  `edit some.file`  
 *Also You can use  this one for getting updates:*  `alias edit_update="docker pull jare/vim-bundle:latest"`  
 ###### **How to disable some plugins:**  
