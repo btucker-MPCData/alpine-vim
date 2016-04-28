@@ -77,6 +77,10 @@ export -f gvii
 40. [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) Fast, as-you-type, fuzzy-search code completion
 41. [Vimproc.vim](https://github.com/Valloric/YouCompleteMe) Interactive command execution in Vim
 42. [Tsuquyomi](https://github.com/Quramy/tsuquyomi) A Vim plugin for TypeScript
+43. [Peaksea](https://github.com/vim-scripts/peaksea) The peak sea color
+44. [Rainbow Parentheses](https://github.com/junegunn/rainbow_parentheses.vim) Much simpler Rainbow Parentheses
+45. [vim-clang_doxygen](https://github.com/sven-strothoff/vim-clang_doxygen) Generate Doxygen comments for your C/C++ code
+46. [vim-bitbake](https://github.com/kergoth/vim-bitbake) Syntax highlighting for bitbake (.bb) files
 
 *[.vimrc](https://github.com/JAremko/alpine-vim/blob/master/.vimrc)*
 
