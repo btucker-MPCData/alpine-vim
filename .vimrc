@@ -31,7 +31,7 @@ let g:yankring_history_dir = '/home/developer/.vim_runtime/temp_dirs'
 """"""""""""""""""""""""""""""
 " => CTRL-P
 """"""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'rw'
 
 let g:ctrlp_map = '<c-f>'
 map <leader>j :CtrlP<cr>
@@ -39,6 +39,7 @@ map <c-b> :CtrlPBuffer<cr>
 
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+let g:ctrlp_root_markers = ['.git']
 
 
 """"""""""""""""""""""""""""""
@@ -143,6 +144,18 @@ colorscheme solarized
 set relativenumber
 set number
 
+""""""""""""""""""""""""""""""
+" => rainbow_parentheses
+""""""""""""""""""""""""""""""
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
+" Activation based on file type
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType c,cpp,lisp,clojure,scheme RainbowParentheses
+augroup END
+" List of colors that you do not want. ANSI code or #RRGGBB
+let g:rainbow#blacklist = [233, 234]
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Snippets
@@ -181,7 +194,9 @@ endif
 " => Indent Guides
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
+let g:indent_guides_guide_size = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_color_change_percent=5
 nmap <F6> :IndentGuidesToggle<CR>
 set ts=2 sw=2 et
 
