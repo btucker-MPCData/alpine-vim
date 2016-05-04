@@ -76,6 +76,7 @@ RUN cd /home/developer/bundle/                                                  
     git clone --depth 1 https://github.com/junegunn/rainbow_parentheses.vim.git                                 && \
     git clone --depth 1 https://github.com/sven-strothoff/vim-clang_doxygen.git                                 && \
     git clone --depth 1 https://github.com/kergoth/vim-bitbake.git                                              && \
+    git clone --depth 1 https://github.com/vim-scripts/SearchComplete.git                                       && \
 #Cleanup
     sh /util/ocd-clean /home/developer/bundle/  > /dev/null 2>&1
     

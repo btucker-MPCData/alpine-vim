@@ -1,4 +1,5 @@
 #### `jare/vim-bundle:latest`   
+C
 
 [![](http://i.imgur.com/G6KybVM.png)](http://i.imgur.com/G6KybVM.png) 
 
@@ -81,6 +82,7 @@ export -f gvii
 44. [Rainbow Parentheses](https://github.com/junegunn/rainbow_parentheses.vim) Much simpler Rainbow Parentheses
 45. [vim-clang_doxygen](https://github.com/sven-strothoff/vim-clang_doxygen) Generate Doxygen comments for your C/C++ code
 46. [vim-bitbake](https://github.com/kergoth/vim-bitbake) Syntax highlighting for bitbake (.bb) files
+47. [SearchComplete](https://github.com/vim-scripts/SearchComplete) tab-complete words while typing in a search
 
 *[.vimrc](https://github.com/JAremko/alpine-vim/blob/master/.vimrc)*
 
