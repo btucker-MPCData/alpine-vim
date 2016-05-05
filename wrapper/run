@@ -1,4 +1,10 @@
 #!/bin/bash
+USER_ID=${LOCAL_USER_ID:-9001}
+GROUP_ID=${LOCAL_GROUP_ID:-9001}
+echo "Starting with UID,GID : $USER_ID $GROUP_ID"
+addgroup -g $GROUP_ID developer
+adduser -G developer -h /home/developer -D -u $USER_ID developer
+export HOMR=/home/developer
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$GOBIN
 cd /home/developer
 echo "let g:pathogen_disabled = [$DISABLE]" > .vimrc
@@ -6,5 +12,6 @@ echo "execute pathogen#infect('/ext/bundle/{}')" >> .vimrc
 mkdir -p /home/developer/.vim_runtime/temp_dirs
 cat .vimrc~ >> .vimrc
 echo "source /ext/.vimrc" >> .vimrc
+chown -R developer:developer .vim_runtime
 cd /home/developer/workspace/
-vim -g -f $@
+su-exec developer vim -g -f $@
