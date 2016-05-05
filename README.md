@@ -28,6 +28,9 @@ export -f gvii
 
 **Have fun!**  `edit some.file`  
 *Also You can use  this one for getting updates:*  `alias edit_update="docker pull jare/vim-bundle:latest"`  
+###### **How to control UID and GID:**  
+By default the inner vi process will run as uid=9001 and gid=9001. New files created will have these ownership which is probably not useful. The UID and GID can be controlled with the LOCAL_USER_ID and LOCAL_GROUP_ID environment variables. If you want to use the local users ownership include the following on the docker run command line:
+`docker run ... -e LOCAL_USER_ID=\`id -u\` -e LOCAL_GROUP_ID=\`id -g\` ... benjamint/vim-bundle`
 ###### **How to disable some plugins:**  
 `docker run ... -e DISABLE="'vim-airline', 'nerdtree'" ... jare/vim-bundle`
 ###### **How to add your plugins and .vimrc:**
