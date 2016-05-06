@@ -27,7 +27,7 @@ RUN apk --update add curl ctags git python bash ncurses-terminfo                
     rm -rf /home/developer/bundle/YouCompleteMe/third_party/ycmd/cpp /usr/lib/go  \
       /home/developer/bundle/YouCompleteMe/third_party/ycmd/clang_includes                                      && \
     apk del build-deps                                                                                          && \
-    apk add libxt libx11 libstdc++ llvm clang the_silver_searcher                                               && \
+    apk add libxt libx11 libstdc++ llvm clang the_silver_searcher grep                                          && \
     sh /util/ocd-clean / > /dev/null 2>&1 
     
 
