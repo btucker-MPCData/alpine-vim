@@ -196,7 +196,7 @@ endif
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 0
 let g:indent_guides_start_level = 2
-let g:indent_guides_color_change_percent=5
+let g:indent_guides_color_change_percent=3
 nmap <F6> :IndentGuidesToggle<CR>
 set ts=2 sw=2 et
 
