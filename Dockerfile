@@ -28,8 +28,8 @@ RUN apk --update add curl ctags git python bash ncurses-terminfo                
       /home/developer/bundle/YouCompleteMe/third_party/ycmd/clang_includes                                      && \
     apk del build-deps                                                                                          && \
     apk add libxt libx11 libstdc++ llvm clang the_silver_searcher grep                                          && \
-    sh /util/ocd-clean / > /dev/null 2>&1 
-    
+    sh /util/ocd-clean / > /dev/null 2>&1 									&& \
+    apk --update add libc-dev
 
 RUN cd /home/developer/bundle/                                                                                  && \
     git clone --depth 1 https://github.com/pangloss/vim-javascript.git                                          && \
