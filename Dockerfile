@@ -4,8 +4,6 @@ MAINTAINER JAremko <w3techplaygound@gmail.com>
 
 LABEL jare-compatible-dockerized-vim="true"
 
-COPY .vimrc /home/developer/my.vimrc
-
 #Plugins deps
 RUN apk --update add curl ctags git python bash ncurses-terminfo                                                && \
 #Build YouCompleteMe
@@ -80,7 +78,16 @@ RUN cd /home/developer/bundle/                                                  
 #Cleanup
     sh /util/ocd-clean /home/developer/bundle/  > /dev/null 2>&1
     
+#Install the Hack font
+RUN cd /home/developer                                                                                          && \
+    git clone --depth 1 https://github.com/chrissimpkins/Hack.git Hack                                          && \
+    mkdir -p /usr/share/fonts                                                                                   && \
+    cp -r Hack/build/ttf /usr/share/fonts/ttf-hack                                                              && \
+    fc-cache -sv                                                                                                && \
+    rm -fr /home/developer/Hack
+
 #Build the default .vimrc
+COPY .vimrc /home/developer/my.vimrc
 RUN  mv -f /home/developer/.vimrc /home/developer/.vimrc~                                                       && \
      curl -s https://raw.githubusercontent.com/amix/vimrc/master/vimrcs/basic.vim >> /home/developer/.vimrc~    && \
      curl -s https://raw.githubusercontent.com/amix/vimrc/master/vimrcs/extended.vim >> /home/developer/.vimrc~ && \
@@ -90,14 +97,6 @@ RUN  mv -f /home/developer/.vimrc /home/developer/.vimrc~                       
 
 #Pathogen help tags generation
 RUN vim -E -c 'execute pathogen#helptags()' -c q ; return 0
-
-#Install the Hack font
-RUN cd /home/developer                                                                                          && \
-    git clone --depth 1 https://github.com/chrissimpkins/Hack.git Hack                                          && \
-    mkdir -p /usr/share/fonts                                                                                   && \
-    cp -r Hack/build/ttf /usr/share/fonts/ttf-hack                                                              && \
-    fc-cache -sv                                                                                                && \
-    rm -fr /home/developer/Hack
 
 ENV GOPATH /home/developer/workspace
 ENV GOROOT /usr/lib/go
