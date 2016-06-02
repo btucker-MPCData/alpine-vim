@@ -173,6 +173,13 @@ nnoremap <F5> :UndotreeToggle<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YCM
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <F9> :YcmCompleter FixIt<cr>
+nnoremap <F10> :YcmForceCompileAndDiagnostics<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Set Vim working directory to the current location
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autochdir
