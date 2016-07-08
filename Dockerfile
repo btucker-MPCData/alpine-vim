@@ -75,6 +75,9 @@ RUN cd /home/developer/bundle/                                                  
     git clone --depth 1 https://github.com/sven-strothoff/vim-clang_doxygen.git                                 && \
     git clone --depth 1 https://github.com/kergoth/vim-bitbake.git                                              && \
     git clone --depth 1 https://github.com/vim-scripts/SearchComplete.git                                       && \
+	git clone --depth 1 https://github.com/ekalinin/Dockerfile.vim.git											&& \
+	git clone --depth 1 https://github.com/vim-scripts/drools.vim.git                                           && \
+            sed -i $'s/\r$//' drools.vim/syntax/drools.vim                                                      && \
 #Cleanup
     sh /util/ocd-clean /home/developer/bundle/  > /dev/null 2>&1
     
