@@ -16,15 +16,15 @@
 **Alternatively, for VIM GUI and also clang completer support, make an alias:**  
 `alias edit="docker run -ti --rm -e DISPLAY -v $HOME/.Xauthority:/home/developer/.Xauthority --net=host -v $(pwd):/home/developer/workspace benjamint/vim-bundle"`  
 **Often a shell function will work better. Here are examples of mine**  
-vii() {
+`vii() {
 	docker run -ti --rm -v $(pwd):/home/developer/workspace -v /home/btucker/vim_config:/ext/ benjamint/vim-bundle $*
-}
-export -f vii
+}`
+`export -f vii`
 
-gvii() {
+`gvii() {
 	docker run -ti --rm -e DISPLAY -v $HOME/.Xauthority:/home/developer/.Xauthority --net=host -v $(pwd):/home/developer/workspace -v /home/btucker/vim_config:/ext/ benjamint/vim-bundle $*
-}
-export -f gvii
+}`
+`export -f gvii`
 
 **Have fun!**  `edit some.file`  
 *Also You can use  this one for getting updates:*  `alias edit_update="docker pull jare/vim-bundle:latest"`  
@@ -91,6 +91,10 @@ By default the inner vi process will run as uid=9001 and gid=9001. New files cre
 47. [drools](https://github.com/vim-scripts/drools.vim) Syntax highlighting for "Rules Set" files for the DROOLS Rules Engine, a.k.a, JBoss Rules: http://labs.jboss.com/jbossrules/
 
 *[.vimrc](https://github.com/JAremko/alpine-vim/blob/master/.vimrc)*
+
+###### **How to build/rebuild:**
+  - git submodules are employed to pull all of the plugins into the container. This enables the latest upstream versions of the plugins to be used. Before building update all of the submodules using `git submodule update --init --recursive`
+  - Alternatively run `./update_and_build.sh`
 
 ###### **Working with Golang:**
   - For the full Golang support you need to mount `/usr/lib/go`. For example, run [`jare/go-tools`](https://hub.docker.com/r/jare/go-tools/) in the detached mode `docker create -v /usr/lib/go --name vim-go-tools jare/go-tools /bin/true` and mount its volumes like this `docker run ...  --volumes-from vim-go-tools ... jare/vim-bundle` or add it to the alias `alias edit="docker run -ti --rm --volumes-from go-tools -v $(pwd):/home/developer/workspace jare/vim-bundle"`
