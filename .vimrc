@@ -241,3 +241,12 @@ let g:tagbar_type_typescript = {
     \ 'e:enums',
   \ ]
 \ }
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => grammerous
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:grammarous#default_comments_only_filetypes={'*' : 1, 'help' : 0, 'markdown' : 0,}
+let g:grammarous#use_vim_spelllang=1
+nmap <buffer><C-g> :% GrammarousCheck --no-preview<cr>
+

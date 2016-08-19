@@ -87,8 +87,9 @@ By default the inner vi process will run as uid=9001 and gid=9001. New files cre
 45. [vim-clang_doxygen](https://github.com/sven-strothoff/vim-clang_doxygen) Generate Doxygen comments for your C/C++ code
 46. [vim-bitbake](https://github.com/kergoth/vim-bitbake) Syntax highlighting for bitbake (.bb) files
 47. [SearchComplete](https://github.com/vim-scripts/SearchComplete) tab-complete words while typing in a search
-47. [Dockerfile](https://github.com/ekalinin/Dockerfile.vim) Vim syntax file for Docker's Dockerfile and snippets for snipMate.
-47. [drools](https://github.com/vim-scripts/drools.vim) Syntax highlighting for "Rules Set" files for the DROOLS Rules Engine, a.k.a, JBoss Rules: http://labs.jboss.com/jbossrules/
+48. [Dockerfile](https://github.com/ekalinin/Dockerfile.vim) Vim syntax file for Docker's Dockerfile and snippets for snipMate.
+49. [drools](https://github.com/vim-scripts/drools.vim) Syntax highlighting for "Rules Set" files for the DROOLS Rules Engine, a.k.a, JBoss Rules: http://labs.jboss.com/jbossrules/
+50. [grammerous](https://github.com/rhysd/vim-grammarous) a powerful grammar checker that uses [LanguageTool](https://www.languagetool.org/)
 
 *[.vimrc](https://github.com/JAremko/alpine-vim/blob/master/.vimrc)*
 

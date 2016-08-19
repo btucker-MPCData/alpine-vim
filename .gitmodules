@@ -145,3 +145,6 @@
 [submodule "bundle/vimproc.vim"]
 	path = bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/vim-grammarous"]
+	path = bundle/vim-grammarous
+	url = https://github.com/rhysd/vim-grammarous.git
