@@ -244,9 +244,12 @@ let g:tagbar_type_typescript = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => grammerous
+" => grammarous
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:grammarous#default_comments_only_filetypes={'*' : 1, 'help' : 0, 'markdown' : 0,}
 let g:grammarous#use_vim_spelllang=1
-nmap <buffer><C-g> :% GrammarousCheck --no-preview<cr>
+nmap <leader>gc :% GrammarousCheck --no-preview<cr>
+nmap <leader>gr :GrammarousReset<cr>
+nmap <leader>gn <Plug>(grammarous-move-to-next-error)
+nmap <leader>gp <Plug>(grammarous-move-to-previous-error)
 

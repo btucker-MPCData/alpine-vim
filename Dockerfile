@@ -19,8 +19,8 @@ RUN { \
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk/jre
 ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 
-ENV JAVA_VERSION 8u92
-ENV JAVA_ALPINE_VERSION 8.92.14-r1
+ENV JAVA_VERSION 8u101
+ENV JAVA_ALPINE_VERSION 8.101.13-r1
 
 RUN set -x \
 	&& apk add --no-cache \
@@ -29,7 +29,7 @@ RUN set -x \
 
 ADD bundle /home/developer/bundle
 
-RUN wget http://www.languagetool.org/download/snapshots/LanguageTool-20160811-snapshot.zip -O /tmp/lt.zip && \
+RUN wget http://www.languagetool.org/download/LanguageTool-stable.zip -O /tmp/lt.zip && \
 	mkdir -p /home/developer/bundle/vim-grammarous/misc && \
     unzip /tmp/lt.zip -d /home/developer/bundle/vim-grammarous/misc && \
 	rm /tmp/lt.zip
@@ -68,6 +68,9 @@ RUN cd /home/developer                                                          
     fc-cache -sv                                                                                                && \
     rm -fr /home/developer/Hack
 
+#help tags generation
+RUN vim -c 'helptags ALL' -c q
+
 #Build the default .vimrc
 COPY .vimrc /home/developer/my.vimrc
 RUN  mv -f /home/developer/.vimrc /home/developer/.vimrc~                                                       && \
@@ -76,9 +79,6 @@ RUN  mv -f /home/developer/.vimrc /home/developer/.vimrc~                       
      cat  /home/developer/my.vimrc >> /home/developer/.vimrc~                                                   && \
      rm /home/developer/my.vimrc                                                                                && \
      sh /util/tidy-viml /home/developer/.vimrc~     
-
-#Pathogen help tags generation
-RUN vim -E -c 'execute pathogen#helptags()' -c q ; return 0
 
 ENV GOPATH /home/developer/workspace
 ENV GOROOT /usr/lib/go

@@ -18,17 +18,15 @@ RUN apk add --update --virtual build-deps python python-dev ctags build-base \
                 --enable-gui \
                 --disable-netbeans \
                 --prefix /usr                                                  && \
-    make VIMRUNTIMEDIR=/usr/share/vim/vim74                                    && \
+    make VIMRUNTIMEDIR=/usr/share/vim/vim80                                    && \
     make install                                                               && \
     apk del build-deps                                                         && \
     apk add libsm libice libxt libx11 ncurses gtk+2.0                          && \
     #deleting docs, tutorials, icons and lang
-    rm -rf /usr/share/man/* /usr/share/icons/* /usr/share/doc/* /tmp/* \
-      /var/cache/* /var/log/* /var/tmp/*                                       && \
+    rm -rf /tmp/* /var/cache/* /var/log/* /var/tmp/*                           && \
     mkdir /var/cache/apk                                                       && \
-    cd /usr/share/vim/vim74/                                                   && \ 
-    rm -rf lang/* tutor/* gvimrc_example.vim vimrc_example.vim                 && \
-    find . -name *.txt | while read line; do rm "$line"; done                  && \
-    sh /util/ocd-clean /                                           
+    cd /usr/share/vim/vim80/                                                   && \
+    rm -rf tutor/* gvimrc_example.vim vimrc_example.vim                        && \
+    sh /util/ocd-clean /
 
 ENTRYPOINT ["vim"]
