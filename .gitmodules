@@ -148,3 +148,6 @@
 [submodule "bundle/vim-grammarous"]
 	path = bundle/vim-grammarous
 	url = https://github.com/rhysd/vim-grammarous.git
+[submodule "bundle/vim-localvimrc"]
+	path = bundle/vim-localvimrc
+	url = https://github.com/embear/vim-localvimrc.git
