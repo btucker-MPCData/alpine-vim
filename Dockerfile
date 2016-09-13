@@ -68,6 +68,13 @@ RUN cd /home/developer                                                          
     fc-cache -sv                                                                                                && \
     rm -fr /home/developer/Hack
 
+# Add the shared files
+ADD share /usr/share
+
+# Install Checkstyle for syntastic
+RUN mkdir -p /usr/share/java && \
+    wget 'http://downloads.sourceforge.net/project/checkstyle/checkstyle/7.1.1/checkstyle-7.1.1-all.jar?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fcheckstyle%2Ffiles%2Fcheckstyle%2F&ts=1473774619&use_mirror=netix' -O /usr/share/java/checkstyle-all.jar
+
 #help tags generation
 RUN vim -c 'helptags ALL' -c q
 

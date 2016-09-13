@@ -253,3 +253,13 @@ nmap <leader>gr :GrammarousReset<cr>
 nmap <leader>gn <Plug>(grammarous-move-to-next-error)
 nmap <leader>gp <Plug>(grammarous-move-to-previous-error)
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => syntastic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_check_on_open = 1
+
+let g:syntastic_java_checkstyle_classpath = '/usr/share/java/checkstyle-all.jar'
+let g:syntastic_java_checkstyle_conf_file = '/usr/share/java/resources/checkstyle/google_checks.xml'
+let g:syntastic_java_checkers = ["checkstyle"]
+
