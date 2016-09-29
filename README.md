@@ -91,6 +91,7 @@ By default the inner vi process will run as uid=9001 and gid=9001. New files cre
 49. [drools](https://github.com/vim-scripts/drools.vim) Syntax highlighting for "Rules Set" files for the DROOLS Rules Engine, a.k.a, JBoss Rules: http://labs.jboss.com/jbossrules/
 50. [grammerous](https://github.com/rhysd/vim-grammarous) a powerful grammar checker that uses [LanguageTool](https://www.languagetool.org/)
 51. [localvimrc](https://github.com/embear/vim-localvimrc) searches for local vimrc files in the file system tree of the currently opened file.
+52. [fontsize](https://github.com/drmikehenry/vim-fontsize) adjust font size via key presses.
 
 *[.vimrc](https://github.com/JAremko/alpine-vim/blob/master/.vimrc)*
 
