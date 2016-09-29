@@ -263,3 +263,15 @@ let g:syntastic_java_checkstyle_classpath = '/usr/share/java/checkstyle-all.jar'
 let g:syntastic_java_checkstyle_conf_file = '/usr/share/java/resources/checkstyle/google_checks.xml'
 let g:syntastic_java_checkers = ["checkstyle"]
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => gitgutter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_eager=1
+let g:gitgutter_realtime=1
+let g:gitgutter_sign_added = "\xe2\x8a\x9e"
+let g:gitgutter_sign_modified = "\xe2\x8a\xa1"
+let g:gitgutter_sign_removed = "\xe2\x8a\x9f"
+let g:gitgutter_sign_modified_removed = "\xe2\x8a\xa0"
+
+
