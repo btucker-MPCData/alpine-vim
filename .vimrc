@@ -151,7 +151,7 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{','}']]
 " Activation based on file type
 augroup rainbow_lisp
   autocmd!
-  autocmd FileType c,cpp,lisp,clojure,scheme RainbowParentheses
+  autocmd FileType c,cpp,lisp,clojure,scheme,java RainbowParentheses
 augroup END
 " List of colors that you do not want. ANSI code or #RRGGBB
 let g:rainbow#blacklist = [233, 234]
