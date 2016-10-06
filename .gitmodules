@@ -130,9 +130,6 @@
 [submodule "bundle/vim-bitbake"]
 	path = bundle/vim-bitbake
 	url = https://github.com/kergoth/vim-bitbake.git
-[submodule "bundle/SearchComplete"]
-	path = bundle/SearchComplete
-	url = https://github.com/vim-scripts/SearchComplete.git
 [submodule "bundle/Dockerfile.vim"]
 	path = bundle/Dockerfile.vim
 	url = https://github.com/ekalinin/Dockerfile.vim.git
@@ -154,3 +151,9 @@
 [submodule "bundle/vim-fontsize"]
 	path = bundle/vim-fontsize
 	url = https://github.com/drmikehenry/vim-fontsize.git
+[submodule "bundle/incsearch.vim"]
+	path = bundle/incsearch.vim
+	url = https://github.com/haya14busa/incsearch.vim.git
+[submodule "bundle/incsearch-fuzzy.vim"]
+	path = bundle/incsearch-fuzzy.vim
+	url = https://github.com/haya14busa/incsearch-fuzzy.vim.git

@@ -274,4 +274,41 @@ let g:gitgutter_sign_modified = "\xe2\x8a\xa1"
 let g:gitgutter_sign_removed = "\xe2\x8a\x9f"
 let g:gitgutter_sign_modified_removed = "\xe2\x8a\xa0"
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => incsearch
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:config_fuzzyall(...) abort
+  return extend(copy({
+  \   'converters': [
+  \     incsearch#config#fuzzy#converter(),
+  \     incsearch#config#fuzzyspell#converter()
+  \   ],
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> / incsearch#go(<SID>config_fuzzyall())
+noremap <silent><expr> ? incsearch#go(<SID>config_fuzzyall({'command': '?'}))
+noremap <silent><expr> g? incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
+
+" :h g:incsearch#auto_nohlsearch
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Miscellaneous
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set spell
+set tabstop=4
+set shiftwidth=4
+set guifont=Hack\ 9
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=DarkRed guibg=#600000
+highlight ExtraWhitespace ctermbg=DarkRed guibg=#600000
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+
 
