@@ -304,6 +304,7 @@ map g# <Plug>(incsearch-nohl-g#)
 " Miscellaneous
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set spell
+set spellcamelcase
 set tabstop=4
 set shiftwidth=4
 set guifont=Hack\ 9
