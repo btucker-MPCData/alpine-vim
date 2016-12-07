@@ -93,6 +93,7 @@ By default the inner vi process will run as uid=9001 and gid=9001. New files cre
 51. [fontsize](https://github.com/drmikehenry/vim-fontsize) adjust font size via key presses.
 52. [incsearch](https://github.com/haya14busa/incsearch.vim) incrementally highlights ALL pattern matches unlike default 'incsearch'.
 53. [incsearch-fuzzy](https://github.com/haya14busa/incsearch-fuzzy.vim) incremantal fuzzy search extension for incsearch.vim.
+54. [syntastic-local-eslint](https://github.com/mtscout6/syntastic-local-eslint.vim) Prefer local repo install of eslint over global install with syntastic.
 
 *[.vimrc](https://github.com/JAremko/alpine-vim/blob/master/.vimrc)*
 

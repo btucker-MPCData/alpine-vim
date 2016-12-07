@@ -157,3 +157,6 @@
 [submodule "bundle/incsearch-fuzzy.vim"]
 	path = bundle/incsearch-fuzzy.vim
 	url = https://github.com/haya14busa/incsearch-fuzzy.vim.git
+[submodule "bundle/syntastic-local-eslint.vim"]
+	path = bundle/syntastic-local-eslint.vim
+	url = https://github.com/mtscout6/syntastic-local-eslint.vim.git
