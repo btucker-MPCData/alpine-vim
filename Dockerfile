@@ -7,6 +7,37 @@ LABEL jare-compatible-dockerized-vim="true"
 # Default to UTF-8 file.encoding
 ENV LANG C.UTF-8
 
+# Install node
+ENV NODE_VERSION=v7.2.1 NPM_VERSION=3
+RUN apk add --no-cache curl make gcc g++ python linux-headers paxctl libgcc libstdc++ gnupg && \
+  gpg --keyserver ha.pool.sks-keyservers.net --recv-keys \
+    9554F04D7259F04124DE6B476D5A82AC7E37093B \
+    94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
+    0034A06D9D9B0064CE8ADF6BF1747F4AD2306D93 \
+    FD3A5288F042B6850C66B31F09FE44734EB7990E \
+    71DCFD284A79C3B38668286BC97EC7A07EDE3FC1 \
+    DD8F2338BAE7501E3DD5AC78C273792F7D83545D \
+    C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
+    B9AE9905FFD7803F25714661B63B535A4C206CA9 && \
+  curl -o node-${NODE_VERSION}.tar.gz -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz && \
+  curl -o SHASUMS256.txt.asc -sSL https://nodejs.org/dist/${NODE_VERSION}/SHASUMS256.txt.asc && \
+  gpg --verify SHASUMS256.txt.asc && \
+  grep node-${NODE_VERSION}.tar.gz SHASUMS256.txt.asc | sha256sum -c - && \
+  tar -zxf node-${NODE_VERSION}.tar.gz && \
+  cd node-${NODE_VERSION} && \
+  export GYP_DEFINES="linux_use_gold_flags=0" && \
+  ./configure --prefix=/usr ${CONFIG_FLAGS} && \
+  NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
+  make -j${NPROC} -C out mksnapshot BUILDTYPE=Release && \
+  paxctl -cm out/Release/mksnapshot && \
+  make -j${NPROC} && \
+  make install && \
+  paxctl -cm /usr/bin/node && \
+  cd / && \
+  if [ -x /usr/bin/npm ]; then \
+    npm install -g npm@${NPM_VERSION}; \
+  fi
+
 # add a simple script that can auto-detect the appropriate JAVA_HOME value
 # based on whether the JDK or only the JRE is installed
 RUN { \
@@ -74,6 +105,10 @@ ADD share /usr/share
 # Install Checkstyle for syntastic
 RUN mkdir -p /usr/share/java && \
     wget 'http://downloads.sourceforge.net/project/checkstyle/checkstyle/7.1.1/checkstyle-7.1.1-all.jar?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fcheckstyle%2Ffiles%2Fcheckstyle%2F&ts=1473774619&use_mirror=netix' -O /usr/share/java/checkstyle-all.jar
+
+# Install eslint and jshint
+RUN npm install -g eslint jshint
+ADD .eslintrc.js /home/developer
 
 #help tags generation
 RUN vim -c 'helptags ALL' -c q
