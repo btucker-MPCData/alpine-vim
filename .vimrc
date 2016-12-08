@@ -263,6 +263,12 @@ let g:syntastic_java_checkstyle_classpath = '/usr/share/java/checkstyle-all.jar'
 let g:syntastic_java_checkstyle_conf_file = '/usr/share/java/resources/checkstyle/google_checks.xml'
 let g:syntastic_java_checkers = ["checkstyle"]
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_async = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint','jshint']
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => gitgutter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
