@@ -4,6 +4,8 @@ MAINTAINER JAremko <w3techplaygound@gmail.com>
 
 ADD tidy-viml /util/
 
+RUN apk update && apk add ca-certificates && update-ca-certificates && apk add openssl
+
 RUN apk add --update --virtual build-deps python python-dev ctags build-base \
       make mercurial libxpm-dev libx11-dev libxt-dev ncurses-dev git gtk+2.0-dev && \
     cd /tmp                                                                    && \
