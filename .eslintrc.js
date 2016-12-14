@@ -27,5 +27,6 @@ module.exports = {
         "jsdoc/require-returns-description": 1,
         "jsdoc/require-returns-type": 1,
         "semi" : 2
+        "no-console" : "off"
     }
 };
