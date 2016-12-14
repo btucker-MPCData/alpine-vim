@@ -108,7 +108,7 @@ RUN mkdir -p /usr/share/java && \
 
 # Install eslint and jshint
 RUN npm install -g eslint jshint
-ADD .eslintrc.js /home/developer
+ADD .eslintrc.js /home/developer/.eslintrc
 
 #help tags generation
 RUN vim -c 'helptags ALL' -c q
