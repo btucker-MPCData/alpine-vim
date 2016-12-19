@@ -91,6 +91,9 @@ RUN apk --update add curl ctags git python bash ncurses-terminfo                
     cd /home/developer/bundle/                                                                                  && \
     sh /util/ocd-clean /home/developer/bundle/  > /dev/null 2>&1
 
+# Restore the standard C header files for YCM C code checking
+RUN apk --update fix musl-dev
+
 #Install the Hack font
 RUN cd /home/developer                                                                                          && \
     git clone --depth 1 https://github.com/chrissimpkins/Hack.git Hack                                          && \
