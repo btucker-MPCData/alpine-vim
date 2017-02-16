@@ -28,7 +28,6 @@ RUN apk add --update --virtual build-deps python python-dev ctags build-base \
     rm -rf /tmp/* /var/cache/* /var/log/* /var/tmp/*                           && \
     mkdir /var/cache/apk                                                       && \
     cd /usr/share/vim/vim80/                                                   && \
-    rm -rf tutor/* gvimrc_example.vim vimrc_example.vim                        && \
-    sh /util/ocd-clean /
+    rm -rf tutor/* gvimrc_example.vim vimrc_example.vim
 
 ENTRYPOINT ["vim"]
