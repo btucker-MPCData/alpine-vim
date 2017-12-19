@@ -85,6 +85,10 @@ RUN mkdir -p /usr/share/java && \
 RUN npm install -g eslint jshint
 ADD .eslintrc.js /home/developer/.eslintrc
 
+# Install pylint
+RUN apk --no-cache add python py2-pip \
+	&& pip install -U setuptools pylint
+
 #help tags generation
 RUN vim -c 'helptags ALL' -c q
 
