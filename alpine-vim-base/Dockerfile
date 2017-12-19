@@ -9,11 +9,16 @@ RUN apk update && apk add ca-certificates && update-ca-certificates && apk add o
 RUN apk add --update --virtual build-deps python python-dev ctags build-base \
       make mercurial libxpm-dev libx11-dev libxt-dev ncurses-dev git gtk+2.0-dev && \
     cd /tmp                                                                    && \
-    git clone https://github.com/btucker-MPCData/vim.git vim                               && \
+    git clone https://github.com/vim/vim.git vim                               && \
     cd /tmp/vim                                                                && \
+    git fetch https://github.com/btucker-MPCData/vim.git master:custom         && \
+    git config --global user.email "you@example.com"                           && \
+    git config --global user.name "Your Name"                                  && \
+    git checkout custom                                                        && \
+    git rebase master                                                          && \
     ./configure --with-features=big \
                 #needed for editing text in languages which have many characters
-                --enable-multibyte \     
+                --enable-multibyte \
                 #python interop needed for some of my plugins
                 --enable-pythoninterp \
                 --with-python-config-dir=/usr/lib/python2.7/config \
