@@ -22,8 +22,8 @@ RUN { \
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk/jre
 ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 
-ENV JAVA_VERSION 8u151
-ENV JAVA_ALPINE_VERSION 8.151.12-r0
+ENV JAVA_VERSION 8u161
+ENV JAVA_ALPINE_VERSION 8.161.12-r0
 
 RUN set -x \
 	&& apk add --no-cache \
@@ -79,7 +79,8 @@ ADD share /usr/share
 
 # Install Checkstyle for syntastic
 RUN mkdir -p /usr/share/java && \
-    wget 'http://downloads.sourceforge.net/project/checkstyle/checkstyle/7.1.1/checkstyle-7.1.1-all.jar?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fcheckstyle%2Ffiles%2Fcheckstyle%2F&ts=1473774619&use_mirror=netix' -O /usr/share/java/checkstyle-all.jar
+    #wget 'http://downloads.sourceforge.net/project/checkstyle/checkstyle/7.1.1/checkstyle-7.1.1-all.jar?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fcheckstyle%2Ffiles%2Fcheckstyle%2F&ts=1473774619&use_mirror=netix' -O /usr/share/java/checkstyle-all.jar
+    wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.12/checkstyle-8.12-all.jar -O /usr/share/java/checkstyle-all.jar
 
 # Install eslint and jshint
 RUN npm install -g eslint jshint
